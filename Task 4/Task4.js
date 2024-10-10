@@ -8,7 +8,7 @@ const getData = async () => {
 
         const rawData = response.data;
         // console.log(rawData.data);
-        console.log(rawData);
+        // console.log(rawData);
         const data = rawData.data;
 
         let dataArr = new Array();
@@ -27,17 +27,16 @@ const getData = async () => {
         for (let i = 0; i < query.length; i++) {
             let l = query[i].range[0]; 
             let r = query[i].range[1]; 
-            console.log(l, r);
+            // console.log(l, r);
             if (query[i].type === "1") {
                 result.push(dataArr[r + 1].type1 - dataArr[l].type1);
             }
             if (query[i].type === "2") {
-                result.push(dataArr[r + 1].type2 
-                    - dataArr[l].type2);
+                result.push(dataArr[r + 1].type2 - dataArr[l].type2);
             }
         }
         await sendData(rawData.token, result);
-        console.log(result);
+        // console.log(result);
     } catch (error) {
         console.error(error);
     }
